@@ -141,41 +141,45 @@ if($_SESSION['current_location'] != $user_dir){ //jesli nie jestem w katalogu ma
 foreach($files as $file){
 	if(is_dir($file)){ //plik jest katalogiem
 		echo "<a href='zmien_lokacje.php?new_location=$file/'>" . $file . "</a>";
-		echo "&nbsp&nbsp;<a href='deleteDirFile.php?remove_file_dir=$file/'><i class='fa-regular fa-trash-can' style='font-size:24px;'></i></a><br>"; //ikonka kosza
+		echo "&nbsp&nbsp;<a href='deleteDirFile.php?remove_file_dir=$file/'><i class='fa-regular fa-trash-can' style='font-size:24px;'></i></a><br>"; 
 	}
 	else{ //pliki
 		$file_ext = substr($file, strpos($file, '.')+1);
 		echo "<a href=$file download>" . $file . "</a>";
 		if($file_ext == "jpg" || $file_ext == "jpeg" || $file_ext == "png"){
-			echo "&nbsp&nbsp;<a href=$file><img src=$file style='width:60px;height:40px'></i></a>"; //ikonka pliku
+			echo "&ensp;<img src='$file'><br>";
 		}
 		else if($file_ext == "mp3"){
-			echo "&nbsp&nbsp;<a href=$file><i class='fa-regular fa-file-audio' style='font-size:24px;'></i></a>"; //ikonka pliku
+			echo "<audio controls><source src='$file' type='audio/mpeg'></audio><br>";
 		}
 		else if($file_ext == "mp4"){
-			echo "&nbsp&nbsp;<a href=$file><i class='fa-regular fa-file-video' style='font-size:24px;'></i></a>"; //ikonka pliku
+			echo "<video controls muted'><source src='$file' type='video/mp4'></video><br>";
+		}else{
+			echo "&nbsp;<a href='$file'>Wyświetl plik</a>";
 		}
-		echo "&nbsp&nbsp;<a href='deleteDirFile.php?remove_file_dir=$file'><i class='fa-regular fa-trash-can' style='font-size:24px;'></i></a><br>"; //ikonka kosza
+		echo "&nbsp&nbsp;<a href='deleteDirFile.php?remove_file_dir=$file'><i class='fa-regular fa-trash-can' style='font-size:24px;'></i></a><br>";
 	}
 }
 
 //dodwanie katalogow
 
 if ($_SESSION['current_location']==$user_dir) {
-	echo "<br><form action='nowy_folder.php' method='post'>
-		<button type='submit' name='nowy_folder' style='border:none;background-color:#ffffff;font-size:24px;'><i class='fa-solid fa-folder-plus'></i></button>
+	echo "<form action='nowy_folder.php' method='post'>
+		Dodaj nowy katalog: <button type='submit' name='nowy_folder' style='border:none;background-color:#ffffff;font-size:24px;'><i class='fa-solid fa-folder-plus'></i></button>
 	  </form></br>";
 
 if(isset($_POST['nazwa_folderu'])){
 	$name = $_POST['nazwa_folderu'];
 	if(!file_exists($user_dir . $name . '/')){
 		mkdir($user_dir . $name . '/', 0777, true);
+
 	}
 }
 }
 
 ?>
 <br>
+Dodaj plik:
 <label for="file">
 	<i class="fa-solid fa-cloud-arrow-up" style="font-size:24px;"></i>
 </label>
