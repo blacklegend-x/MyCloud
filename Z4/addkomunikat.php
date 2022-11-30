@@ -7,7 +7,7 @@ $recipient = $_POST['recipient'];
 
 if (IsSet($_POST['post']))
 {
-	$dbhost="mariadb106.server701675.nazwa.pl"; $dbuser="server701675_bargra1"; $dbpassword="N8CrQi!qb@y3YT@"; $dbname="server701675_bargra1";
+	$dbhost=""; $dbuser=""; $dbpassword=""; $dbname="";
 	$connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 	if (!$connection)
 	{
