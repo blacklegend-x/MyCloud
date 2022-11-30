@@ -4,7 +4,7 @@ if(IsSet($_SESSION['username']) == 0){
 	die("Brak zalogowanego użytkownika! <a href='index.php'>Powrót do index.php</a><br/>");
 }
 
-$dbhost="mariadb106.server701675.nazwa.pl"; $dbuser="server701675_bargra1"; $dbpassword="N8CrQi!qb@y3YT@"; $dbname="server701675_bargra1";
+$dbhost=""; $dbuser=""; $dbpassword=""; $dbname="";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 if (!$connection)
 {
@@ -41,7 +41,7 @@ File to send:<input type = "file" name = "file" id = "file">
 </form>
 
 <?php
-$dbhost="mariadb106.server701675.nazwa.pl"; $dbuser="server701675_bargra"; $dbpassword="N8CrQi!qb@y3YT@"; $dbname="server701675_bargra";
+$dbhost=""; $dbuser=""; $dbpassword=""; $dbname="";
 $connection = mysqli_connect($dbhost, $dbuser, $dbpassword, $dbname);
 if (!$connection)
 {
