@@ -4,7 +4,7 @@ session_start();
 $_SESSION['username'] = $user; //zmienna sesyjna z nazwa uzytkownika, zeby mozna bylo uzyc jej w innych plikach
 $pass = htmlentities ($_POST['pass'], ENT_QUOTES, "UTF-8"); // rozbrojenie potencjalnej bomby w zmiennej $pass
 
-$link = mysqli_connect('mariadb106.server701675.nazwa.pl', 'server701675_bargra1', 'N8CrQi!qb@y3YT@', 'server701675_bargra1');
+$link = mysqli_connect();
 if(!$link) { echo"Błąd: ". mysqli_connect_errno()." ".mysqli_connect_error(); } // obsługa błędu połączenia z BD
 mysqli_query($link, "SET NAMES 'utf8'"); // ustawienie polskich znaków
 $result = mysqli_query($link, "SELECT * FROM users WHERE username='$user'"); // wiersza, w którym login=login z formularza
