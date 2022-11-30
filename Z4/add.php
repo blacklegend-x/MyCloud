@@ -2,7 +2,7 @@
 $user = htmlentities ($_POST['user'], ENT_QUOTES, "UTF-8"); // rozbrojenie potencjalnej bomby w zmiennej $user
 $pass = htmlentities ($_POST['pass'], ENT_QUOTES, "UTF-8"); // rozbrojenie potencjalnej bomby w zmiennej $pass
 $pass_confirm= htmlentities ($_POST['pass_confirm'], ENT_QUOTES, "UTF-8");; // hasło z formularza
-$link = mysqli_connect('mariadb106.server701675.nazwa.pl', 'server701675_bargra1', 'N8CrQi!qb@y3YT@', 'server701675_bargra1'); //polaczenie z baza danych
+$link = mysqli_connect(); //polaczenie z baza danych
 if(!$link) { echo"Błąd: ". mysqli_connect_errno()." ".mysqli_connect_error(); } // obsługa błędu połączenia z BD
 mysqli_query($link, "SET NAMES 'utf8'"); // ustawienie polskich znaków
 $result = mysqli_query($link, "SELECT * FROM users WHERE username='$user'"); // wiersza, w którym login=login z formularza
