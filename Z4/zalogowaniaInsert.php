@@ -28,7 +28,7 @@ function wytnij_nazwe_przegladarki($user_agent)
     return 'Other'; //nieznana
 }
 
-$link = mysqli_connect('mariadb106.server701675.nazwa.pl', 'server701675_bargra1', 'N8CrQi!qb@y3YT@', 'server701675_bargra1'); //polaczenie z baza danych
+$link = mysqli_connect(); //polaczenie z baza danych
 if(!$link) { echo"Błąd: ". mysqli_connect_errno()." ".mysqli_connect_error(); } // obsługa błędu połączenia z BD
 
 //odebranie wszystkich zmiennych i wrzucenie ich do tabeli goscieportalu
